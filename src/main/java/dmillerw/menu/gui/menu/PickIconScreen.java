@@ -194,7 +194,7 @@ public class PickIconScreen extends Screen {
                 }
 
                 if (!scaled) {
-                    ItemRenderHelper.renderItem(guiGraphics, actualDrawX, actualDrawY, stacks.get(i));
+                    ItemRenderHelper.renderItem(this.font, guiGraphics, actualDrawX, actualDrawY, stacks.get(i));
                 }
 
             } else {
@@ -206,7 +206,7 @@ public class PickIconScreen extends Screen {
             PoseStack poseStack = guiGraphics.pose();
             poseStack.pushPose();
             poseStack.scale(2, 2, 2);
-            ItemRenderHelper.renderItem(guiGraphics, highlightedX, highlightedY, highlighted);
+            ItemRenderHelper.renderItem(this.font, guiGraphics, highlightedX, highlightedY, highlighted);
             poseStack.popPose();
         }
     }

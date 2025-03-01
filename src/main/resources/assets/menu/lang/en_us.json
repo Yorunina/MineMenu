@@ -6,6 +6,7 @@
   "mine_menu.mainscreen.title.pickItem": "Pick an Item:",
   "mine_menu.clipboardCopy": "Command copied to clipboard",
   "mine_menu.selectKey": "Select a key",
+  "mine_menu.mainscreen.title.selectKey": "Select a Key:",
   "mine_menu.selectSlot": "Select a Slot",
   "mine_menu.clipboard": "Clipboard",
   "mine_menu.send": "Send",

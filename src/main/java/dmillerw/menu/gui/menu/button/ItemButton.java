@@ -2,6 +2,7 @@ package dmillerw.menu.gui.menu.button;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dmillerw.menu.helper.ItemRenderHelper;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -16,9 +17,12 @@ public class ItemButton extends ExtendedButton {
     @Nonnull
     public ItemStack icon;
 
-    public ItemButton(int xPos, int yPos, int width, int height, @Nonnull ItemStack icon, OnPress handler) {
+    public Font font;
+
+    public ItemButton(int xPos, int yPos, int width, int height, @Nonnull ItemStack icon, OnPress handler, Font font) {
         super(xPos, yPos, width, height, Component.literal(""), handler);
         this.icon = icon;
+        this.font = font;
     }
 
     @Override
@@ -33,7 +37,7 @@ public class ItemButton extends ExtendedButton {
             if (this.icon.isEmpty()) {
                 this.icon = new ItemStack(Blocks.AIR);
             }
-            ItemRenderHelper.renderItem(guiGraphics, this.getX() + this.width / 2, this.getY() + this.height / 2, icon);
+            ItemRenderHelper.renderItem(this.font, guiGraphics, this.getX() + this.width / 2, this.getY() + this.height / 2, icon);
         }
     }
 }

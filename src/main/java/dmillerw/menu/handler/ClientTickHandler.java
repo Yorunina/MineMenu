@@ -59,7 +59,8 @@ public class ClientTickHandler {
         if (mc.level != null && !mc.options.hideGui && !mc.isPaused() && RadialMenuScreen.active) {
             GuiGraphics guiGraphics = event.getGuiGraphics();
             renderButtonBackgrounds();
-            renderItems(guiGraphics);
+
+            renderItems(mc.font, guiGraphics);
             renderText(guiGraphics);
         }
     }
@@ -139,7 +140,7 @@ public class ClientTickHandler {
         RenderSystem.applyModelViewMatrix();
     }
 
-    private static void renderItems(GuiGraphics guiGraphics) {
+    private static void renderItems(Font font, GuiGraphics guiGraphics) {
         Minecraft mc = Minecraft.getInstance();
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
@@ -160,7 +161,7 @@ public class ClientTickHandler {
             drawX = (length * Math.cos(Math.toRadians(angle)));
             drawY = (length * Math.sin(Math.toRadians(angle)));
 
-            ItemRenderHelper.renderItem(guiGraphics, (int) drawY, (int) drawX, stack);
+            ItemRenderHelper.renderItem(font, guiGraphics, (int) drawY, (int) drawX, stack);
         }
         poseStack.popPose();
     }

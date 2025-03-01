@@ -1,6 +1,7 @@
 package dmillerw.menu.helper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
 
@@ -8,7 +9,7 @@ import javax.annotation.Nonnull;
 
 public class ItemRenderHelper {
 
-    public static void renderItem(GuiGraphics guiGraphics, int x, int y, @Nonnull ItemStack stack) {
+    public static void renderItem(Font font, GuiGraphics guiGraphics, int x, int y, @Nonnull ItemStack stack) {
         PoseStack poseStack = guiGraphics.pose();
 
         poseStack.pushPose();
@@ -18,6 +19,7 @@ public class ItemRenderHelper {
 
         if (!stack.isEmpty()) {
             guiGraphics.renderItem(stack, x, y);
+            guiGraphics.renderItemDecorations(font, stack, x, y);
         }
         poseStack.popPose();
     }

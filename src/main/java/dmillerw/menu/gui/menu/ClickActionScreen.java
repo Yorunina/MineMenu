@@ -160,7 +160,7 @@ public class ClickActionScreen extends Screen {
             commandClipboardButton.visible = true;
             keybindButton.visible = false;
             keybindToggleButton.visible = false;
-        }));
+        }, this.font));
 
         addRenderableWidget(this.modeKeybinding = new ItemButton(this.width / 2 - 25, this.height - 90, 20, 20, new ItemStack(Blocks.OAK_BUTTON), (screen) -> {
             // Keybinding
@@ -177,7 +177,7 @@ public class ClickActionScreen extends Screen {
             commandClipboardButton.visible = false;
             keybindButton.visible = true;
             keybindToggleButton.visible = true;
-        }));
+        }, this.font));
 
         addRenderableWidget(this.modeUseItem = new ItemButton(this.width / 2 + 5, this.height - 90, 20, 20, new ItemStack(Items.DIAMOND_SWORD), (screen) -> {
             // Select item
@@ -194,7 +194,7 @@ public class ClickActionScreen extends Screen {
             commandClipboardButton.visible = false;
             keybindButton.visible = false;
             keybindToggleButton.visible = false;
-        }));
+        }, this.font));
 
         addRenderableWidget(this.modeCategory = new ItemButton(this.width / 2 + 35, this.height - 90, 20, 20, new ItemStack(Blocks.CHEST), (screen) -> {
             // Category
@@ -211,7 +211,7 @@ public class ClickActionScreen extends Screen {
             commandClipboardButton.visible = false;
             keybindButton.visible = false;
             keybindToggleButton.visible = false;
-        }));
+        }, this.font));
 
         this.textCommand = new EditBox(this.font, this.width / 2 - 150, 50, 300, 20, Component.translatable("mine_menu.clickAction_command"));
         this.textCommand.setMaxLength(32767);

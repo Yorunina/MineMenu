@@ -78,7 +78,7 @@ public class MenuItemScreen extends Screen {
                 Minecraft.getInstance().setScreen(null);
             }
         }).bounds(this.width / 2 - 50, this.height - 60, 100, 20).build());
-        addRenderableWidget(this.buttonPickIcon = new ItemButton(this.width / 2 - 4 - 40, this.height / 2, 20, 20, new ItemStack(Blocks.AIR), (screen) -> ScreenStack.push(new PickIconScreen())));
+        addRenderableWidget(this.buttonPickIcon = new ItemButton(this.width / 2 - 4 - 40, this.height / 2, 20, 20, new ItemStack(Blocks.AIR), (screen) -> ScreenStack.push(new PickIconScreen()), this.font));
 
         Component string = Component.translatable("mine_menu.action");
         if (EditSessionData.clickAction != null) {

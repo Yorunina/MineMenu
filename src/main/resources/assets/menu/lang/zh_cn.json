@@ -4,6 +4,7 @@
   "mine_menu.mainscreen.tips.edit": "编辑内容：",
   "mine_menu.mainscreen.common.item": "物品：%s",
   "mine_menu.mainscreen.title.pickItem": "选择一个物品:",
+  "mine_menu.mainscreen.title.selectKey": "选择一个按键:",
   "mine_menu.clipboardCopy": "指令已被复制到剪贴板",
   "mine_menu.selectKey": "选择你要绑定的按键",
   "mine_menu.selectSlot": "选择槽位中的物品",
