@@ -6,10 +6,18 @@ plugins {
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 repositories {
-  maven { 
-    name = "Controlling"
-    url = "https://maven.blamejared.com" 
-  }
+    maven {
+      name = "Controlling"
+      url = "https://maven.blamejared.com"
+    }
+    maven {
+        name = "Curse maven"
+        url = "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    mavenCentral()
 }
 
 ext.buildnumber=""
@@ -59,6 +67,9 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    compileOnly fg.deobf("curse.maven:architectury-forge-419699:5137938")
+    compileOnly fg.deobf("curse.maven:rhino-416294:6186971")
+    compileOnly fg.deobf("curse.maven:kubejs-forge-238086:5853326")
     compileOnly fg.deobf("com.blamejared.controlling:Controlling-forge-${minecraft_version}:${controlling_version}")
     runtimeOnly fg.deobf("com.blamejared.controlling:Controlling-forge-${minecraft_version}:${controlling_version}")
     implementation fg.deobf("com.blamejared.searchables:Searchables-forge-${minecraft_version}:${searchables_version}")

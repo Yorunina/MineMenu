@@ -6,6 +6,7 @@ import dmillerw.menu.helper.KeyReflectionHelper;
 import dmillerw.menu.network.PacketHandler;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -22,6 +23,7 @@ public class MineMenu {
     public static final String MOD_NAME = "MineMenu";
     public static File menuFolder = new File(FMLPaths.GAMEDIR.get().toFile(), MOD_ID);
     public static File menuFile = new File(menuFolder, "menu.json");
+    public static boolean KUBEJS_LOADED = false;
 
     public MineMenu() {
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -29,6 +31,9 @@ public class MineMenu {
         modBus.addListener(EventPriority.LOWEST, this::setupMenuLoader);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.spec);
+        if (ModList.get().isLoaded("kubejs")) {
+            KUBEJS_LOADED = true;
+        }
     }
 
     private void setupCommon(FMLCommonSetupEvent event) {

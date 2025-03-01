@@ -1,5 +1,6 @@
 package dmillerw.menu.data.click;
 
+import dmillerw.menu.compat.kubejs.EventManager;
 import dmillerw.menu.network.PacketHandler;
 import dmillerw.menu.network.packet.server.PacketUseItem;
 import net.minecraft.client.Minecraft;
@@ -26,7 +27,7 @@ public class ClickActionUseItem implements ClickAction.IClickAction {
     public void onClicked() {
         Minecraft mc = Minecraft.getInstance();
         LocalPlayer player = mc.player;
-
+        EventManager.postClickActionUseItemEvent(this.stack);
         if (player != null) {
             for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                 ItemStack stack = player.getInventory().getItem(i);
