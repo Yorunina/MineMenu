@@ -38,7 +38,7 @@ public class PickItemScreen extends Screen {
     public void render(@Nonnull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(guiGraphics);
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
-        GuiRenderHelper.renderHeaderAndFooter(guiGraphics, this, 25, 20, 5, "Pick an Item:");
+        GuiRenderHelper.renderHeaderAndFooter(guiGraphics, this, 25, 20, 5, Component.translatable("mine_menu.mainscreen.title.pickItem").getString());
         guiGraphics.blit(new ResourceLocation("textures/gui/container/inventory.png"), guiLeft, guiTop, 0, 0, XSIZE, YSIZE);
 
         Slot mousedOver = null;

@@ -1,5 +1,9 @@
 {
   "key.open_menu": "Open Mine Menu",
+  "mine_menu.mainscreen.tips.addItem": "Add Item",
+  "mine_menu.mainscreen.tips.edit": "EDIT：",
+  "mine_menu.mainscreen.common.item": "Item：%s",
+  "mine_menu.mainscreen.title.pickItem": "Pick an Item:",
   "mine_menu.clipboardCopy": "Command copied to clipboard",
   "mine_menu.selectKey": "Select a key",
   "mine_menu.selectSlot": "Select a Slot",
@@ -10,6 +14,7 @@
   "mine_menu.action": "Action",
   "mine_menu.command": "Command",
   "mine_menu.keybind": "Keybind",
+  "mine_menu.modify_menu.title": "Enter a title, then configure using the options below",
   "mine_menu.clickAction_command": "Click Action: Command",
   "mine_menu.clickAction_keybinding": "Click Action: KeyBinding",
   "mine_menu.clickAction_useItem": "Click Action: Use Item",

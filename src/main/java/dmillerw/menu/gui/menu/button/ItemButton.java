@@ -31,7 +31,7 @@ public class ItemButton extends ExtendedButton {
             ScreenUtils.blitWithBorder(guiGraphics, WIDGETS_LOCATION, this.getX(), this.getY(), 0, 46 + k * 20, this.width, this.height, 200, 20, 2, 3, 2, 2, 0);
 
             if (this.icon.isEmpty()) {
-                this.icon = new ItemStack(Blocks.STONE);
+                this.icon = new ItemStack(Blocks.AIR);
             }
             ItemRenderHelper.renderItem(guiGraphics, this.getX() + this.width / 2, this.getY() + this.height / 2, icon);
         }

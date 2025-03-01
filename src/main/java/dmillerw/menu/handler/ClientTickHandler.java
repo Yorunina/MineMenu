@@ -14,6 +14,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -183,9 +184,9 @@ public class ClientTickHandler {
 
             if (mouseIn) {
                 MenuItem item = RadialMenu.getActiveArray()[i];
-                String string = item == null ? "Add Item" : item.title;
+                String string = item == null ? Component.translatable("mine_menu.mainscreen.tips.addItem").getString() : item.title;
                 if (RadialMenuScreen.hasShiftDown() && item != null) {
-                    string = ChatFormatting.RED + "EDIT: " + ChatFormatting.WHITE + string;
+                    string = ChatFormatting.RED + Component.translatable("mine_menu.mainscreen.tips.edit").getString() + ChatFormatting.WHITE + string;
                 }
 
                 int drawX = window.getGuiScaledWidth() / 2 - fontRenderer.width(string) / 2;

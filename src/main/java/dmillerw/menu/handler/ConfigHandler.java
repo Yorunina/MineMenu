@@ -25,7 +25,7 @@ public class ConfigHandler {
             menuAnimation = builder
                     .define("menuAnimation", true);
             menuButtonIcon = builder
-                    .define("menuButtonIcon", "minecraft:stone");
+                    .define("menuButtonIcon", "minecraft:air");
             builder.pop();
         }
     }

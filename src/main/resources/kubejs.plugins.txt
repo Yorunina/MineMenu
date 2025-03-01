@@ -1,1 +1,1 @@
-net.tigereye.chestcavity.compat.kubejs.CCKubeJSPlugin
+dmillerw.menu.compat.kubejs.MMKubeJSPlugin
