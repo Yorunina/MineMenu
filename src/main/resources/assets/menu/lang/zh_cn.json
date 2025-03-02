@@ -16,6 +16,8 @@
   "mine_menu.command": "点此编辑点击行为",
   "mine_menu.keybind": "点此编辑点击行为",
   "mine_menu.modify_menu.title": "在上方输入该按键的名称，随后在下方选择其图标和对应的点击行为",
+  "mine_menu.modify_item.title": "物品修改菜单 #",
+  "mine_menu.menu_item.title": "物品菜单 #",
   "mine_menu.clickAction_command": "点击行为: 触发某个指令",
   "mine_menu.clickAction_keybinding": "点击行为: 触发某一个按键",
   "mine_menu.clickAction_useItem": "点击行为: 使用某物品或者器官能力",

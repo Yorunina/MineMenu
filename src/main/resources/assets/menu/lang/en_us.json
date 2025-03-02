@@ -16,6 +16,8 @@
   "mine_menu.command": "Command",
   "mine_menu.keybind": "Keybind",
   "mine_menu.modify_menu.title": "Enter a title, then configure using the options below",
+  "mine_menu.modify_item.title": "Modifying Menu Item #",
+  "mine_menu.menu_item.title": "Menu Item #",
   "mine_menu.clickAction_command": "Click Action: Command",
   "mine_menu.clickAction_keybinding": "Click Action: KeyBinding",
   "mine_menu.clickAction_useItem": "Click Action: Use Item",

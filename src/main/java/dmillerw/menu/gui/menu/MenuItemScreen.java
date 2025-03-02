@@ -8,6 +8,7 @@ import dmillerw.menu.data.menu.MenuItem;
 import dmillerw.menu.data.menu.RadialMenu;
 import dmillerw.menu.data.session.EditSessionData;
 import dmillerw.menu.gui.ScreenStack;
+import dmillerw.menu.gui.menu.box.TitleEditBox;
 import dmillerw.menu.gui.menu.button.ItemButton;
 import dmillerw.menu.helper.GuiRenderHelper;
 import net.minecraft.client.Minecraft;
@@ -26,7 +27,7 @@ import javax.annotation.Nullable;
 
 public class MenuItemScreen extends Screen {
     private final int slot;
-    private EditBox textTitle;
+    private TitleEditBox textTitle;
     private Button buttonCancel;
     private Button buttonConfirm;
     private Button buttonDelete;
@@ -57,7 +58,7 @@ public class MenuItemScreen extends Screen {
     public void init() {
         addRenderableWidget(this.buttonConfirm = Button.builder(Component.translatable("gui.done"), (screen) -> {
             if (EditSessionData.title.isEmpty()) {
-                EditSessionData.title = "Menu Item #" + slot;
+                EditSessionData.title = Component.translatable("mine_menu.modify_menu.title").getString() + slot;
             }
 
             if (EditSessionData.clickAction != null) {
@@ -90,9 +91,9 @@ public class MenuItemScreen extends Screen {
         }
         addRenderableWidget(this.buttonClickAction = Button.builder(string, (screen) -> ScreenStack.push(new ClickActionScreen())).bounds(this.width / 2 - 20, this.height / 2, 100, 20).build());
 
-        this.textTitle = new EditBox(this.font, this.width / 2 - 150, 50, 300, 20, Component.translatable("mine_menu.menuItem.title"));
+        this.textTitle = new TitleEditBox(this.font, this.width / 2 - 150, 50, 300, 20, Component.translatable("mine_menu.menuItem.title"));
         this.textTitle.setMaxLength(32767);
-        this.textTitle.setFocused(true);
+        this.textTitle.setFocused(false);
         this.textTitle.setValue(EditSessionData.title != null && !EditSessionData.title.isEmpty() ? EditSessionData.title : "");
 
         this.buttonPickIcon.icon = EditSessionData.icon;
@@ -107,6 +108,7 @@ public class MenuItemScreen extends Screen {
         return false;
     }
 
+
     @Override
     public boolean charTyped(char key, int keycode) {
         if (this.textTitle.charTyped(key, keycode)) {
@@ -116,10 +118,10 @@ public class MenuItemScreen extends Screen {
         return true;
     }
 
+
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
         super.mouseClicked(mx, my, button);
-
         this.textTitle.mouseClicked(mx, my, button);
         return true;
     }
@@ -129,6 +131,12 @@ public class MenuItemScreen extends Screen {
         if (p_keyPressed_1_ == GLFW.GLFW_KEY_ESCAPE) {
             ScreenStack.pop();
             return true;
+        } else if (this.textTitle.canConsumeInput()) {
+            if (this.textTitle.keyPressed(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_)) {
+                EditSessionData.title = textTitle.getValue().trim();
+                return true;
+            }
+            return false;
         } else {
             return super.keyPressed(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_);
         }
@@ -140,6 +148,6 @@ public class MenuItemScreen extends Screen {
         this.textTitle.render(guiGraphics, mouseX, mouseY, partial);
         guiGraphics.drawCenteredString(this.font, Component.translatable("mine_menu.modify_menu.title"), this.width / 2, 80, 16777215);
         super.render(guiGraphics, mouseX, mouseY, partial);
-        GuiRenderHelper.renderHeaderAndFooter(guiGraphics, this, 25, 20, 5, "Modifying Menu Item #" + slot);
+        GuiRenderHelper.renderHeaderAndFooter(guiGraphics, this, 25, 20, 5, Component.translatable("mine_menu.modify_item.title").getString()+ slot);
     }
 }
